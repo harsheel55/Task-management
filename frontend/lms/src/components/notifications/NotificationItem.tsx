@@ -93,7 +93,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
       exit={{ opacity: 0, x: -100 }}
       whileHover={{ scale: 1.01 }}
       className={`p-3 sm:p-4 border rounded-lg transition-colors ${
-        notification.isRead ? 'bg-white border-gray-200' : 'bg-blue-50 border-blue-200'
+        notification.isRead ? 'bg-white dark:bg-zinc-900 border-gray-200 dark:border-zinc-800' : 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
       }`}
     >
       <div className="flex gap-3 sm:gap-4">
@@ -110,7 +110,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 mb-1">
-            <p className={`text-sm sm:text-base ${notification.isRead ? 'text-gray-700' : 'text-gray-900 font-medium'}`}>
+            <p className={`text-sm sm:text-base ${notification.isRead ? 'text-gray-700 dark:text-zinc-300' : 'text-gray-900 dark:text-white font-medium'}`}>
               {notification.message}
             </p>
             {!notification.isRead && (
@@ -126,7 +126,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
           {notification.relatedLink && notification.relatedText && (
             <Link
               to={notification.relatedLink}
-              className="inline-block text-xs sm:text-sm text-blue-600 hover:text-blue-700 hover:underline mb-1"
+              className="inline-block text-xs sm:text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline mb-1"
             >
               {notification.relatedText}
             </Link>
@@ -134,7 +134,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
 
           {/* Timestamp and Actions */}
           <div className="flex items-center gap-2 sm:gap-4 mt-2 flex-wrap">
-            <span className="text-xs sm:text-sm text-gray-500">
+            <span className="text-xs sm:text-sm text-gray-500 dark:text-zinc-400">
               {formatTimestamp(notification.timestamp)}
             </span>
 
@@ -144,7 +144,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onMarkAsRead(notification.id)}
-                className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
+                className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1"
               >
                 {notification.isRead ? (
                   <>
@@ -164,7 +164,7 @@ export const NotificationItem = ({ notification, onMarkAsRead, onDelete }: Notif
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onDelete(notification.id)}
-                className="text-xs sm:text-sm text-red-600 hover:text-red-700 font-medium flex items-center gap-1"
+                className="text-xs sm:text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium flex items-center gap-1"
               >
                 <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Delete</span>

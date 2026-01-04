@@ -39,20 +39,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ y: -2 }}
       onClick={handleCardClick}
-      className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all bg-white cursor-pointer"
+      className="border border-gray-200 dark:border-zinc-800 rounded-lg p-4 hover:shadow-md transition-all bg-white dark:bg-zinc-900 cursor-pointer"
     >
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
-          <h3 className="font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             {project.name}
           </h3>
-          <p className="text-sm text-gray-500 line-clamp-2">{project.description}</p>
+          <p className="text-sm text-gray-500 dark:text-zinc-400 line-clamp-2">{project.description}</p>
         </div>
         <div data-dropdown>
           <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="p-1 hover:bg-gray-100 rounded transition-colors">
-              <MoreVertical className="w-4 h-4 text-gray-400" />
+            <button className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors">
+              <MoreVertical className="w-4 h-4 text-gray-400 dark:text-zinc-500" />
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -75,11 +75,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Progress Bar */}
       <div className="mb-3">
-        <div className="flex justify-between text-xs text-gray-600 mb-1">
+        <div className="flex justify-between text-xs text-gray-600 dark:text-zinc-400 mb-1">
           <span className="font-medium">Progress</span>
           <span className="font-semibold">{project.progress}%</span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+        <div className="w-full bg-gray-200 dark:bg-zinc-800 rounded-full h-2 overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${project.progress}%` }}

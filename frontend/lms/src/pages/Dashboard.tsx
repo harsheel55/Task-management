@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
@@ -18,6 +18,7 @@ import { StatsCard } from "@/components/dashboard/StatsCard";
 import { ProjectGrid } from "@/components/dashboard/ProjectGrid";
 import { ActivityFeed } from "@/components/dashboard/ActivityFeed";
 import { CreateProjectModal } from "@/components/dashboard/CreateProjectModal";
+import { authService } from '@/services/authService';
 
 // Mock data - Replace with actual data from your backend
 const mockProjects = [
@@ -69,6 +70,14 @@ const mockActivities = [
  */
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userName, setUserName] = useState('User');
+
+  useEffect(() => {
+    const user = authService.getCurrentUser();
+    if (user?.firstName) {
+      setUserName(user.firstName);
+    }
+  }, []);
 
   const handleCreateProject = (project: { name: string; description: string }) => {
     console.log("Creating project:", project);
@@ -78,17 +87,17 @@ const Dashboard = () => {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <SidebarInset className="bg-gray-50/50">
+      <SidebarInset className="bg-gray-50/50 dark:bg-zinc-950">
         <div className="flex flex-col min-h-screen">
           {/* Header Section */}
-          <header className="bg-white border-b sticky top-0 z-10">
+          <header className="bg-white dark:bg-zinc-900 border-b dark:border-zinc-800 sticky top-0 z-10">
             <div className="px-6 py-4">
               <div className="flex items-center gap-4 mb-4">
                 <SidebarTrigger />
                 <div className="h-6 w-[1px] bg-gray-200" />
                 <div className="flex-1">
-                  <h1 className="text-2xl font-bold text-gray-900">Welcome back, John! 👋</h1>
-                  <p className="text-sm text-gray-500">Here's what's happening with your projects today</p>
+                  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, {userName}! 👋</h1>
+                  <p className="text-sm text-gray-500 dark:text-zinc-400">Here's what's happening with your projects today</p>
                 </div>
               </div>
               
@@ -138,8 +147,8 @@ const Dashboard = () => {
                   />
                   
                   {/* Quick Actions */}
-                  <div className="bg-white rounded-xl border border-gray-200 p-6">
-                    <h2 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h2>
+                  <div className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 p-6">
+                    <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <Button 
                         onClick={() => setIsModalOpen(true)}

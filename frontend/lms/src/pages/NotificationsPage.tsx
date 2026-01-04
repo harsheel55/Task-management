@@ -152,27 +152,27 @@ export const NotificationsPage = () => {
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
       <SidebarInset>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-zinc-950">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="sticky top-0 z-10 bg-white border-b border-gray-200"
+            className="sticky top-0 z-10 bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 md:p-6">
               {/* Breadcrumb and Title */}
               <div className="flex items-center gap-2 min-w-0">
                 <SidebarTrigger className="flex-shrink-0" />
                 <div className="flex items-center gap-2 min-w-0">
-                  <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 truncate">
+                  <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white truncate">
                     Notifications
                   </h1>
                   {unreadCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="px-2 py-0.5 sm:px-3 sm:py-1 bg-blue-100 text-blue-600 text-xs sm:text-sm rounded-full font-semibold flex-shrink-0"
+                      className="px-2 py-0.5 sm:px-3 sm:py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 text-xs sm:text-sm rounded-full font-semibold flex-shrink-0"
                     >
                       {unreadCount} new
                     </motion.span>
@@ -210,7 +210,7 @@ export const NotificationsPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 text-xs sm:text-sm font-medium flex items-center gap-2 whitespace-nowrap"
+                    className="px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 dark:border-zinc-700 text-gray-700 dark:text-zinc-300 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800 text-xs sm:text-sm font-medium flex items-center gap-2 whitespace-nowrap"
                   >
                     <Settings className="w-4 h-4" />
                     <span className="hidden lg:inline">Settings</span>
@@ -230,23 +230,23 @@ export const NotificationsPage = () => {
             {/* Stats */}
             <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">
+                <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg border border-gray-200 dark:border-zinc-800">
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     {notifications.length}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">Total</div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Total</div>
                 </div>
-                <div className="p-3 sm:p-4 rounded-lg border border-blue-200 bg-blue-50">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">
+                <div className="p-3 sm:p-4 rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400">
                     {unreadCount}
                   </div>
-                  <div className="text-xs sm:text-sm text-blue-700">Unread</div>
+                  <div className="text-xs sm:text-sm text-blue-700 dark:text-blue-400">Unread</div>
                 </div>
-                <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200 col-span-2 sm:col-span-1">
-                  <div className="text-2xl sm:text-3xl font-bold text-green-600">
+                <div className="bg-white dark:bg-zinc-900 p-3 sm:p-4 rounded-lg border border-gray-200 dark:border-zinc-800 col-span-2 sm:col-span-1">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-600 dark:text-green-400">
                     {notifications.filter((n) => n.isRead).length}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-600">Read</div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Read</div>
                 </div>
               </div>
             </motion.div>
@@ -273,25 +273,25 @@ export const NotificationsPage = () => {
             {notifications.length > 0 && (
               <motion.div
                 variants={itemVariants}
-                className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200"
+                className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200 dark:border-zinc-800"
               >
                 <Link to="/settings/notifications">
                   <motion.div
                     whileHover={{ x: 5 }}
-                    className="flex items-center justify-between p-3 sm:p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                    className="flex items-center justify-between p-3 sm:p-4 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <Settings className="w-5 h-5 text-blue-600" />
+                      <Settings className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                       <div>
-                        <div className="text-sm sm:text-base font-semibold text-gray-900">
+                        <div className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
                           Notification Preferences
                         </div>
-                        <div className="text-xs sm:text-sm text-gray-600">
+                        <div className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">
                           Manage how and when you receive notifications
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                    <ChevronRight className="w-5 h-5 text-gray-400 dark:text-zinc-500" />
                   </motion.div>
                 </Link>
               </motion.div>

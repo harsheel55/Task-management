@@ -39,10 +39,10 @@ export function ProjectGrid({ projects, onCreateProject }: ProjectGridProps) {
   });
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
+    <div className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 p-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <h2 className="text-xl font-bold text-gray-900">Projects</h2>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Projects</h2>
         <Button 
           onClick={onCreateProject}
           className="bg-blue-600 hover:bg-blue-700 text-white"
@@ -55,13 +55,13 @@ export function ProjectGrid({ projects, onCreateProject }: ProjectGridProps) {
       {/* Search and Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-zinc-500" />
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
           />
         </div>
         <div className="flex gap-2">
@@ -100,24 +100,24 @@ export function ProjectGrid({ projects, onCreateProject }: ProjectGridProps) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+          <div className="flex border border-gray-300 dark:border-zinc-700 rounded-lg overflow-hidden">
             <button
               onClick={() => setViewMode('grid')}
               className={`p-2 transition-colors ${
-                viewMode === 'grid' ? 'bg-gray-100' : 'hover:bg-gray-50'
+                viewMode === 'grid' ? 'bg-gray-100 dark:bg-zinc-800' : 'hover:bg-gray-50 dark:hover:bg-zinc-800/50'
               }`}
               aria-label="Grid view"
             >
-              <Grid3x3 className="w-4 h-4" />
+              <Grid3x3 className="w-4 h-4 dark:text-zinc-400" />
             </button>
             <button
               onClick={() => setViewMode('list')}
               className={`p-2 transition-colors ${
-                viewMode === 'list' ? 'bg-gray-100' : 'hover:bg-gray-50'
+                viewMode === 'list' ? 'bg-gray-100 dark:bg-zinc-800' : 'hover:bg-gray-50 dark:hover:bg-zinc-800/50'
               }`}
               aria-label="List view"
             >
-              <List className="w-4 h-4" />
+              <List className="w-4 h-4 dark:text-zinc-400" />
             </button>
           </div>
         </div>
@@ -126,7 +126,7 @@ export function ProjectGrid({ projects, onCreateProject }: ProjectGridProps) {
       {/* Project Cards */}
       {filteredProjects.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-500">No projects found</p>
+          <p className="text-gray-500 dark:text-zinc-400">No projects found</p>
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}

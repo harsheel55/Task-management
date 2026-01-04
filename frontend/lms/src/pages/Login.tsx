@@ -1,24 +1,38 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { authService } from '@/services/authService';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log('Login data:', formData);
-    alert('Login successful!');
-    setIsLoading(false);
+    
+    try {
+      await authService.login({
+        email: formData.email,
+        password: formData.password
+      });
+      
+      // Redirect to dashboard after successful login
+      navigate('/dashboard');
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Invalid email or password');
+      console.error('Login error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +75,13 @@ const Login = () => {
             className="mt-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Error Message */}
+              {error && (
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-xl">
+                  {error}
+                </div>
+              )}
+
               {/* Email Input */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2 dark:text-white">

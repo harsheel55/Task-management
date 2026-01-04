@@ -61,11 +61,11 @@ export function StatsOverview({ dateRange: _dateRange }: StatsOverviewProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ scale: 1.05, y: -5 }}
-            className={`bg-white rounded-lg border ${card.borderColor} p-6 shadow-sm cursor-pointer`}
+            className={`bg-white dark:bg-zinc-900 rounded-lg border ${card.borderColor} dark:border-zinc-800 p-6 shadow-sm cursor-pointer`}
           >
             <div className="flex items-center justify-between mb-4">
               <motion.div 
-                className={`p-3 rounded-lg ${card.bgColor}`}
+                className={`p-3 rounded-lg ${card.bgColor} dark:bg-opacity-20`}
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
@@ -73,14 +73,14 @@ export function StatsOverview({ dateRange: _dateRange }: StatsOverviewProps) {
               </motion.div>
             </div>
             <motion.h3 
-              className="text-2xl font-bold text-gray-900 mb-1"
+              className="text-2xl font-bold text-gray-900 dark:text-white mb-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
             >
               {card.value}
             </motion.h3>
-            <p className="text-sm text-gray-500">{card.label}</p>
+            <p className="text-sm text-gray-500 dark:text-zinc-400">{card.label}</p>
           </motion.div>
         );
       })}

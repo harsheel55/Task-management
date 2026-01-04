@@ -26,10 +26,10 @@ interface MemberCardProps {
 }
 
 const roleConfig = {
-  owner: { label: 'Owner', color: 'bg-purple-100 text-purple-700 border-purple-200' },
-  admin: { label: 'Admin', color: 'bg-blue-100 text-blue-700 border-blue-200' },
-  member: { label: 'Member', color: 'bg-green-100 text-green-700 border-green-200' },
-  viewer: { label: 'Viewer', color: 'bg-gray-100 text-gray-700 border-gray-200' }
+  owner: { label: 'Owner', color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800' },
+  admin: { label: 'Admin', color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800' },
+  member: { label: 'Member', color: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800' },
+  viewer: { label: 'Viewer', color: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700' }
 };
 
 const avatarColors = {
@@ -67,7 +67,7 @@ export function MemberCard({ member, onChangeRole, onRemove }: MemberCardProps) 
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-5 hover:shadow-md transition-shadow">
       {/* Header with Avatar and Actions */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -75,15 +75,15 @@ export function MemberCard({ member, onChangeRole, onRemove }: MemberCardProps) 
             {member.avatar}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">{member.name}</h3>
-            <p className="text-sm text-gray-500">{member.email}</p>
+            <h3 className="font-semibold text-gray-900 dark:text-white">{member.name}</h3>
+            <p className="text-sm text-gray-500 dark:text-zinc-400">{member.email}</p>
           </div>
         </div>
         
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="p-1 hover:bg-gray-100 rounded transition-colors">
-              <MoreVertical className="w-5 h-5 text-gray-400" />
+            <button className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors">
+              <MoreVertical className="w-5 h-5 text-gray-400 dark:text-zinc-500" />
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -123,11 +123,11 @@ export function MemberCard({ member, onChangeRole, onRemove }: MemberCardProps) 
 
       {/* Member Info */}
       <div className="space-y-2 text-sm">
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-zinc-400">
           <Calendar className="w-4 h-4" />
           <span>Joined {formatDate(member.joinedDate)}</span>
         </div>
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-zinc-400">
           <ListTodo className="w-4 h-4" />
           <span>{member.tasksAssigned} task{member.tasksAssigned !== 1 ? 's' : ''} assigned</span>
         </div>

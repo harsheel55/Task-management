@@ -66,21 +66,21 @@ export const SettingsLayout = ({ children }: SettingsLayoutProps) => {
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
       <SidebarInset>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-zinc-950">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="sticky top-0 z-10 bg-white border-b border-gray-200"
+            className="sticky top-0 z-10 bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800"
           >
             <div className="flex items-center gap-2 p-3 sm:p-4 md:p-6">
               <SidebarTrigger />
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Link to="/dashboard" className="hover:text-gray-900">
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400">
+                <Link to="/dashboard" className="hover:text-gray-900 dark:hover:text-white">
                   Dashboard
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-semibold">Settings</span>
+                <span className="text-gray-900 dark:text-white font-semibold">Settings</span>
               </div>
             </div>
           </motion.div>
@@ -96,7 +96,7 @@ export const SettingsLayout = ({ children }: SettingsLayoutProps) => {
                   animate="visible"
                   className="lg:col-span-1"
                 >
-                  <div className="bg-white rounded-lg border border-gray-200 p-2">
+                  <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-2">
                     <nav className="space-y-1">
                       {settingsMenuItems.map((item) => {
                         const Icon = item.icon;
@@ -109,24 +109,24 @@ export const SettingsLayout = ({ children }: SettingsLayoutProps) => {
                                 whileHover={{ x: 4 }}
                                 className={`flex items-start gap-3 p-3 rounded-lg transition-colors ${
                                   isActive
-                                    ? 'bg-blue-50 text-blue-700'
-                                    : 'text-gray-700 hover:bg-gray-50'
+                                    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
+                                    : 'text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800'
                                 }`}
                               >
                                 <Icon
                                   className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                                    isActive ? 'text-blue-600' : 'text-gray-400'
+                                    isActive ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400 dark:text-zinc-500'
                                   }`}
                                 />
                                 <div className="flex-1 min-w-0">
                                   <div
                                     className={`text-sm font-semibold ${
-                                      isActive ? 'text-blue-700' : 'text-gray-900'
+                                      isActive ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-white'
                                     }`}
                                   >
                                     {item.title}
                                   </div>
-                                  <div className="text-xs text-gray-500 mt-0.5 hidden sm:block">
+                                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-0.5 hidden sm:block">
                                     {item.description}
                                   </div>
                                 </div>

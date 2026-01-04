@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Home,
   GraduationCap,
@@ -12,6 +12,8 @@ import {
   BarChart3,
   Plus,
   Search,
+  Moon,
+  Sun,
 } from "lucide-react"
 import {
   Sidebar,
@@ -55,6 +57,29 @@ const projects = [
 
 export function AppSidebar() {
   const [projectsOpen, setProjectsOpen] = useState(true)
+  const [theme, setTheme] = useState<"light" | "dark">("light")
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    const root = window.document.documentElement
+    
+    if (savedTheme) {
+      setTheme(savedTheme)
+      root.classList.toggle("dark", savedTheme === "dark")
+    } else {
+      const isDark = root.classList.contains("dark")
+      setTheme(isDark ? "dark" : "light")
+    }
+  }, [])
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light"
+    setTheme(newTheme)
+    localStorage.setItem("theme", newTheme)
+    
+    const root = window.document.documentElement
+    root.classList.toggle("dark", newTheme === "dark")
+  }
 
   return (
     <Sidebar collapsible="icon">
@@ -162,6 +187,12 @@ export function AppSidebar() {
           <SidebarGroupLabel>Account</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton onClick={toggleTheme} tooltip={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}>
+                  {theme === "light" ? <Moon /> : <Sun />}
+                  <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild tooltip="Settings">
                   <a href="/settings/profile">

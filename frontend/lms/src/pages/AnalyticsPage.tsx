@@ -46,14 +46,14 @@ export function AnalyticsPage() {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <SidebarInset className="bg-gray-50/50 overflow-hidden">
+      <SidebarInset className="bg-gray-50/50 dark:bg-zinc-950 overflow-hidden">
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Top Bar */}
-          <header className="bg-white border-b sticky top-0 z-20">
+          <header className="bg-white dark:bg-zinc-900 border-b dark:border-zinc-800 sticky top-0 z-20">
             <div className="px-6 py-4">
               {/* Breadcrumb Navigation */}
               <motion.div 
-                className="flex items-center gap-2 text-sm text-gray-600 mb-3"
+                className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400 mb-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -61,20 +61,20 @@ export function AnalyticsPage() {
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                   <SidebarTrigger />
                 </motion.div>
-                <div className="h-6 w-[1px] bg-gray-200 mx-2" />
+                <div className="h-6 w-[1px] bg-gray-200 dark:bg-zinc-700 mx-2" />
                 <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
-                  <Link to="/dashboard" className="hover:text-blue-600 transition-colors">
+                  <Link to="/dashboard" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     Dashboard
                   </Link>
                 </motion.div>
                 <ChevronRight className="w-4 h-4" />
                 <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
-                  <Link to={`/project/${id}/board`} className="hover:text-blue-600 transition-colors">
+                  <Link to={`/project/${id}/board`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     Project
                   </Link>
                 </motion.div>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-medium">Analytics</span>
+                <span className="text-gray-900 dark:text-white font-medium">Analytics</span>
               </motion.div>
 
               {/* Header */}
@@ -86,7 +86,7 @@ export function AnalyticsPage() {
               >
                 <div className="flex-1">
                   <motion.h1 
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-2xl font-bold text-gray-900 dark:text-white"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -94,7 +94,7 @@ export function AnalyticsPage() {
                     Project Analytics
                   </motion.h1>
                   <motion.p 
-                    className="text-sm text-gray-500 mt-1"
+                    className="text-sm text-gray-500 dark:text-zinc-400 mt-1"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 }}

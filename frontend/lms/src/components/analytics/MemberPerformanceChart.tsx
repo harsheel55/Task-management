@@ -11,14 +11,14 @@ export function MemberPerformanceChart() {
 
   return (
     <motion.div 
-      className="bg-white rounded-lg border border-gray-200 p-6"
+      className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-6"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.4 }}
     >
       <div className="mb-6">
-        <h2 className="text-xl font-bold text-gray-900">Member Performance</h2>
-        <p className="text-sm text-gray-500 mt-1">Tasks assigned to each team member</p>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Member Performance</h2>
+        <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Tasks assigned to each team member</p>
       </div>
 
       {/* Legend */}
@@ -30,7 +30,7 @@ export function MemberPerformanceChart() {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <div className="w-4 h-4 bg-green-500 rounded" />
-          <span className="text-sm text-gray-600">Completed</span>
+          <span className="text-sm text-gray-600 dark:text-zinc-400">Completed</span>
         </motion.div>
         <motion.div 
           className="flex items-center gap-2"
@@ -39,7 +39,7 @@ export function MemberPerformanceChart() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <div className="w-4 h-4 bg-blue-500 rounded" />
-          <span className="text-sm text-gray-600">Active</span>
+          <span className="text-sm text-gray-600 dark:text-zinc-400">Active</span>
         </motion.div>
       </div>
 
@@ -66,12 +66,12 @@ export function MemberPerformanceChart() {
                   >
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </motion.div>
-                  <span className="font-medium text-gray-900">{member.name}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{member.name}</span>
                 </div>
-                <span className="text-sm text-gray-500">{total} tasks</span>
+                <span className="text-sm text-gray-500 dark:text-zinc-400">{total} tasks</span>
               </div>
               
-              <div className="relative h-8 bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative h-8 bg-gray-100 dark:bg-zinc-800 rounded-lg overflow-hidden">
                 {/* Completed bar */}
                 <motion.div
                   className="absolute left-0 top-0 h-full bg-green-500"
@@ -118,7 +118,7 @@ export function MemberPerformanceChart() {
 
               {/* Percentage labels */}
               <motion.div 
-                className="flex justify-between mt-1 text-xs text-gray-500"
+                className="flex justify-between mt-1 text-xs text-gray-500 dark:text-zinc-400"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 1.8 }}

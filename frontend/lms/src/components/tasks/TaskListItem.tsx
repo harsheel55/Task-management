@@ -20,10 +20,10 @@ interface TaskListItemProps {
 
 export function TaskListItem({ task, isSelected, onSelect, onClick, onStatusChange }: TaskListItemProps) {
   const priorityColors = {
-    low: 'bg-gray-100 text-gray-700',
-    medium: 'bg-blue-100 text-blue-700',
-    high: 'bg-orange-100 text-orange-700',
-    urgent: 'bg-red-100 text-red-700'
+    low: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
+    medium: 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400',
+    high: 'bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-400',
+    urgent: 'bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-400'
   };
 
   const statusColors = {
@@ -36,8 +36,8 @@ export function TaskListItem({ task, isSelected, onSelect, onClick, onStatusChan
 
   return (
     <motion.div
-      className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white border rounded-lg hover:shadow-md transition-all cursor-pointer ${
-        isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+      className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white dark:bg-zinc-900 border rounded-lg hover:shadow-md transition-all cursor-pointer ${
+        isSelected ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-gray-200 dark:border-zinc-800'
       }`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export function TaskListItem({ task, isSelected, onSelect, onClick, onStatusChan
           className="flex-shrink-0"
         >
           <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
-            isSelected ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
+            isSelected ? 'bg-blue-600 border-blue-600' : 'border-gray-300 dark:border-zinc-600'
           }`}>
             {isSelected && <Check className="w-3 h-3 text-white" />}
           </div>
@@ -84,7 +84,7 @@ export function TaskListItem({ task, isSelected, onSelect, onClick, onStatusChan
         {/* Task Content */}
         <div className="flex-1 min-w-0" onClick={() => onClick(task)}>
           <motion.h3
-            className={`font-medium text-gray-900 mb-1 text-sm sm:text-base ${task.status === 'done' ? 'line-through text-gray-500' : ''}`}
+            className={`font-medium text-gray-900 dark:text-white mb-1 text-sm sm:text-base ${task.status === 'done' ? 'line-through text-gray-500 dark:text-zinc-500' : ''}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -92,8 +92,8 @@ export function TaskListItem({ task, isSelected, onSelect, onClick, onStatusChan
             {task.title}
           </motion.h3>
           
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
-            <span className="font-medium text-blue-600">{task.project}</span>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-zinc-400">
+            <span className="font-medium text-blue-600 dark:text-blue-400">{task.project}</span>
             
             {task.assignee && (
               <motion.div 

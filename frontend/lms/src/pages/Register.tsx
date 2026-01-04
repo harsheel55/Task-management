@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, User, ArrowRight } from 'lucide-react';
+import { authService } from '@/services/authService';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -13,19 +16,39 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
+      setError('Passwords do not match!');
       return;
     }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log('Register data:', formData);
-    alert('Registration successful!');
-    setIsLoading(false);
+    try {
+      await authService.register({
+        email: formData.email,
+        password: formData.password,
+        firstName: formData.firstName,
+        lastName: formData.lastName
+      });
+      
+      // Redirect to dashboard after successful registration
+      navigate('/dashboard');
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Registration failed. Please try again.');
+      console.error('Registration error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,24 +91,53 @@ const Register = () => {
             className="mt-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-slate-200 dark:border-white/10 p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Input */}
+              {/* Error Message */}
+              {error && (
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-xl">
+                  {error}
+                </div>
+              )}
+
+              {/* First Name Input */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2 dark:text-white">
-                  Full name
+                <label htmlFor="firstName" className="block text-sm font-medium mb-2 dark:text-white">
+                  First name
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <User className="h-5 w-5 text-slate-400 dark:text-zinc-500" />
                   </div>
                   <input
-                    id="name"
-                    name="name"
+                    id="firstName"
+                    name="firstName"
                     type="text"
                     required
-                    value={formData.name}
+                    value={formData.firstName}
                     onChange={handleChange}
                     className="block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-white/10 rounded-xl bg-white dark:bg-zinc-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="John Doe"
+                    placeholder="John"
+                  />
+                </div>
+              </div>
+
+              {/* Last Name Input */}
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium mb-2 dark:text-white">
+                  Last name
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-slate-400 dark:text-zinc-500" />
+                  </div>
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    required
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-white/10 rounded-xl bg-white dark:bg-zinc-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                    placeholder="Doe"
                   />
                 </div>
               </div>

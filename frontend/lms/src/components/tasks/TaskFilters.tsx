@@ -41,23 +41,23 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
 
   return (
     <motion.div
-      className="bg-white rounded-lg border border-gray-200 overflow-hidden"
+      className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 overflow-hidden"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       {/* Header */}
       <motion.div
-        className="flex items-center justify-between p-4 border-b border-gray-200 cursor-pointer"
+        className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-zinc-800 cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
-        whileHover={{ backgroundColor: '#f9fafb' }}
+        whileHover={{ backgroundColor: isExpanded ? undefined : '#f9fafb' }}
       >
         <div className="flex items-center gap-3">
-          <Filter className="w-5 h-5 text-gray-600" />
-          <h3 className="font-semibold text-gray-900">Filters</h3>
+          <Filter className="w-5 h-5 text-gray-600 dark:text-zinc-400" />
+          <h3 className="font-semibold text-gray-900 dark:text-white">Filters</h3>
           {activeFiltersCount > 0 && (
             <motion.span
-              className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full"
+              className="px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 text-xs font-medium rounded-full"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: 'spring', stiffness: 500 }}
@@ -88,7 +88,7 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ChevronDown className="w-5 h-5 text-gray-400" />
+            <ChevronDown className="w-5 h-5 text-gray-400 dark:text-zinc-500" />
           </motion.div>
         </div>
       </motion.div>
@@ -110,11 +110,11 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2">Project</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Project</label>
             <select
               value={filters.project}
               onChange={(e) => onFilterChange({ ...filters, project: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {projects.map(project => (
                 <option key={project} value={project}>{project}</option>
@@ -128,11 +128,11 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2">Assignee</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Assignee</label>
             <select
               value={filters.assignee}
               onChange={(e) => onFilterChange({ ...filters, assignee: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {assignees.map(assignee => (
                 <option key={assignee} value={assignee}>{assignee}</option>
@@ -146,11 +146,11 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Priority</label>
             <select
               value={filters.priority}
               onChange={(e) => onFilterChange({ ...filters, priority: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {priorities.map(priority => (
                 <option key={priority} value={priority}>{priority}</option>
@@ -164,11 +164,11 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Status</label>
             <select
               value={filters.status}
               onChange={(e) => onFilterChange({ ...filters, status: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {statuses.map(status => (
                 <option key={status} value={status}>{status}</option>
@@ -182,11 +182,11 @@ export function TaskFilters({ filters, onFilterChange }: TaskFiltersProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <label className="block text-sm font-medium text-gray-700 mb-2">Due Date</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Due Date</label>
             <select
               value={filters.dueDate}
               onChange={(e) => onFilterChange({ ...filters, dueDate: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {dueDateOptions.map(option => (
                 <option key={option} value={option}>{option}</option>

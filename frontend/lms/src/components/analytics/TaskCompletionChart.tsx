@@ -48,19 +48,19 @@ export function TaskCompletionChart({ dateRange }: TaskCompletionChartProps) {
 
   return (
     <motion.div 
-      className="bg-white rounded-lg border border-gray-200 p-6"
+      className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-6"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >
       <div className="mb-6">
-        <h2 className="text-xl font-bold text-gray-900">Task Completion Trend</h2>
-        <p className="text-sm text-gray-500 mt-1">Number of tasks completed over time</p>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">Task Completion Trend</h2>
+        <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Number of tasks completed over time</p>
       </div>
 
       <div className="relative">
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 bottom-8 w-12 flex flex-col justify-between text-xs text-gray-500">
+        <div className="absolute left-0 top-0 bottom-8 w-12 flex flex-col justify-between text-xs text-gray-500 dark:text-zinc-400">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="text-right pr-2">
               {Math.round(maxValue - (maxValue / 4) * i)}
@@ -138,7 +138,7 @@ export function TaskCompletionChart({ dateRange }: TaskCompletionChartProps) {
           </svg>
 
           {/* X-axis labels */}
-          <div className="flex justify-between mt-2 text-xs text-gray-500">
+          <div className="flex justify-between mt-2 text-xs text-gray-500 dark:text-zinc-400">
             {data.map((point, i) => (
               <div key={i}>{point.date}</div>
             ))}

@@ -111,25 +111,25 @@ export function AllTasksPage() {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <SidebarInset className="bg-gray-50/50 overflow-hidden">
+      <SidebarInset className="bg-gray-50/50 dark:bg-zinc-950 overflow-hidden">
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Header */}
-          <header className="bg-white border-b sticky top-0 z-20">
+          <header className="bg-white dark:bg-zinc-900 border-b dark:border-zinc-800 sticky top-0 z-20">
             <div className="px-6 py-4">
               {/* Breadcrumb */}
               <motion.div
-                className="flex items-center gap-2 text-sm text-gray-600 mb-3"
+                className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400 mb-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
                 <SidebarTrigger />
-                <div className="h-6 w-[1px] bg-gray-200 mx-2" />
-                <Link to="/dashboard" className="hover:text-blue-600 transition-colors">
+                <div className="h-6 w-[1px] bg-gray-200 dark:bg-zinc-700 mx-2" />
+                <Link to="/dashboard" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Dashboard
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-medium">All Tasks</span>
+                <span className="text-gray-900 dark:text-white font-medium">All Tasks</span>
               </motion.div>
 
               {/* Page Header */}
@@ -140,8 +140,8 @@ export function AllTasksPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <div>
-                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900">All Tasks</h1>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">View and manage tasks across all projects</p>
+                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">All Tasks</h1>
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-zinc-400 mt-1">View and manage tasks across all projects</p>
                 </div>
 
                 {/* View Options */}
@@ -164,23 +164,23 @@ export function AllTasksPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <div className="flex-1 relative sm:max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-zinc-500" />
                   <input
                     type="text"
                     placeholder="Search tasks..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                   />
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
-                  <span className="text-xs sm:text-sm text-gray-600 font-medium hidden sm:inline">Group by:</span>
-                  <div className="flex items-center gap-2 min-w-max">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400 font-medium hidden sm:inline">Group by:</span>
+                  <div className="flex flex-wrap items-center gap-2">
                     <motion.button
                       onClick={() => setGroupBy('none')}
                       className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                        groupBy === 'none' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        groupBy === 'none' ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -190,7 +190,7 @@ export function AllTasksPage() {
                     <motion.button
                       onClick={() => setGroupBy('project')}
                       className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors gap-1 sm:gap-2 flex items-center whitespace-nowrap ${
-                        groupBy === 'project' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        groupBy === 'project' ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -201,7 +201,7 @@ export function AllTasksPage() {
                     <motion.button
                       onClick={() => setGroupBy('assignee')}
                       className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors gap-1 sm:gap-2 flex items-center whitespace-nowrap ${
-                        groupBy === 'assignee' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        groupBy === 'assignee' ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -212,7 +212,7 @@ export function AllTasksPage() {
                     <motion.button
                       onClick={() => setGroupBy('due_date')}
                       className={`px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors gap-1 sm:gap-2 flex items-center whitespace-nowrap ${
-                        groupBy === 'due_date' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        groupBy === 'due_date' ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

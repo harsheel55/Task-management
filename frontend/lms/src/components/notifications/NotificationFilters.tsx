@@ -51,22 +51,22 @@ export const NotificationFilters = ({ selectedTypes, onTypeChange, notifications
   const activeFiltersCount = selectedTypes.length;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg">
+    <div className="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg">
       {/* Header */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-3 sm:p-4 hover:bg-gray-50 transition-colors"
-        whileHover={{ backgroundColor: 'rgba(0,0,0,0.02)' }}
+        className="w-full flex items-center justify-between p-3 sm:p-4 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+        whileHover={{ backgroundColor: isExpanded ? undefined : 'rgba(0,0,0,0.02)' }}
       >
         <div className="flex items-center gap-2">
-          <span className="text-sm sm:text-base font-semibold text-gray-700">
+          <span className="text-sm sm:text-base font-semibold text-gray-700 dark:text-zinc-300">
             Filter by Type
           </span>
           {activeFiltersCount > 0 && (
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="px-2 py-0.5 bg-blue-100 text-blue-600 text-xs rounded-full font-medium"
+              className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 text-xs rounded-full font-medium"
             >
               {activeFiltersCount}
             </motion.span>
@@ -84,7 +84,7 @@ export const NotificationFilters = ({ selectedTypes, onTypeChange, notifications
                 e.stopPropagation();
                 clearFilters();
               }}
-              className="text-xs sm:text-sm text-red-600 hover:text-red-700 font-medium flex items-center gap-1 px-2 py-1 rounded hover:bg-red-50"
+              className="text-xs sm:text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium flex items-center gap-1 px-2 py-1 rounded hover:bg-red-50 dark:hover:bg-red-900/20"
             >
               <X className="w-3 h-3 sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Clear</span>
@@ -94,7 +94,7 @@ export const NotificationFilters = ({ selectedTypes, onTypeChange, notifications
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className="w-5 h-5 text-gray-400" />
+            <ChevronDown className="w-5 h-5 text-gray-400 dark:text-zinc-500" />
           </motion.div>
         </div>
       </motion.button>
@@ -122,17 +122,17 @@ export const NotificationFilters = ({ selectedTypes, onTypeChange, notifications
                 whileTap={{ scale: 0.98 }}
                 className={`flex items-center justify-between p-2 sm:p-3 rounded-lg border-2 transition-all ${
                   isSelected
-                    ? 'border-blue-500 bg-blue-50'
-                    : 'border-gray-200 hover:border-gray-300 bg-white'
+                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
+                    : 'border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-zinc-600 bg-white dark:bg-zinc-800'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-blue-500' : type.color}`} />
-                  <span className={`text-xs sm:text-sm ${isSelected ? 'font-semibold text-blue-700' : 'text-gray-700'}`}>
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-blue-500 dark:text-blue-400' : type.color}`} />
+                  <span className={`text-xs sm:text-sm ${isSelected ? 'font-semibold text-blue-700 dark:text-blue-400' : 'text-gray-700 dark:text-zinc-300'}`}>
                     {type.label}
                   </span>
                 </div>
-                <span className={`text-xs ${isSelected ? 'text-blue-600 font-semibold' : 'text-gray-500'}`}>
+                <span className={`text-xs ${isSelected ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-gray-500 dark:text-zinc-400'}`}>
                   {type.count}
                 </span>
               </motion.button>

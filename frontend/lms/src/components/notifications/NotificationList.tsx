@@ -87,12 +87,12 @@ export const NotificationList = ({ notifications, onMarkAsRead, onDelete }: Noti
             ease: 'easeInOut',
           }}
         >
-          <Inbox className="w-16 h-16 sm:w-20 sm:h-20 text-gray-300 mb-4" />
+          <Inbox className="w-16 h-16 sm:w-20 sm:h-20 text-gray-300 dark:text-zinc-600 mb-4" />
         </motion.div>
-        <h3 className="text-lg sm:text-xl font-semibold text-gray-600 mb-2">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-600 dark:text-zinc-400 mb-2">
           No notifications
         </h3>
-        <p className="text-sm sm:text-base text-gray-500 text-center px-4">
+        <p className="text-sm sm:text-base text-gray-500 dark:text-zinc-500 text-center px-4">
           You're all caught up! Check back later for updates.
         </p>
       </motion.div>
@@ -115,11 +115,11 @@ export const NotificationList = ({ notifications, onMarkAsRead, onDelete }: Noti
               variants={itemVariants}
               className="flex items-center gap-3 mb-3 sm:mb-4"
             >
-              <h3 className="text-sm sm:text-base font-semibold text-gray-700">
+              <h3 className="text-sm sm:text-base font-semibold text-gray-700 dark:text-zinc-300">
                 {groupName}
               </h3>
-              <div className="h-px flex-1 bg-gray-200" />
-              <span className="text-xs sm:text-sm text-gray-500">
+              <div className="h-px flex-1 bg-gray-200 dark:bg-zinc-800" />
+              <span className="text-xs sm:text-sm text-gray-500 dark:text-zinc-400">
                 {groupNotifications.length}
               </span>
             </motion.div>

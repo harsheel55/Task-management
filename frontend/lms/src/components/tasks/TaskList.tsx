@@ -107,8 +107,8 @@ export function TaskList({
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: groupIndex * 0.1 + 0.1 }}
               >
-                <h2 className="text-lg font-bold text-gray-900">{groupName}</h2>
-                <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white">{groupName}</h2>
+                <span className="px-2 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 text-xs font-medium rounded-full">
                   {groupTasks.length}
                 </span>
               </motion.div>
@@ -142,8 +142,8 @@ export function TaskList({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-gray-500 text-lg">No tasks found</p>
-          <p className="text-gray-400 text-sm mt-2">Try adjusting your filters</p>
+          <p className="text-gray-500 dark:text-zinc-400 text-lg">No tasks found</p>
+          <p className="text-gray-400 dark:text-zinc-500 text-sm mt-2">Try adjusting your filters</p>
         </motion.div>
       )}
     </div>

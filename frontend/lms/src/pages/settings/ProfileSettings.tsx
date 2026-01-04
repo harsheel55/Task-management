@@ -52,11 +52,11 @@ export const ProfileSettings = () => {
 
   return (
     <SettingsLayout>
-      <div className="bg-white rounded-lg border border-gray-200">
+      <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800">
         {/* Header */}
-        <div className="p-4 sm:p-6 border-b border-gray-200">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Profile Settings</h2>
-          <p className="text-sm text-gray-600 mt-1">Manage your personal information</p>
+        <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Profile Settings</h2>
+          <p className="text-sm text-gray-600 dark:text-zinc-400 mt-1">Manage your personal information</p>
         </div>
 
         {/* Content */}
@@ -92,8 +92,8 @@ export const ProfileSettings = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-900">Profile Photo</h3>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Profile Photo</h3>
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-zinc-400 mt-1">
                 Upload a new profile picture (JPG, PNG, max 5MB)
               </p>
             </div>

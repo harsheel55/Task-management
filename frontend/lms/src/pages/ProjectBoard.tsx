@@ -106,18 +106,18 @@ export default function ProjectBoard() {
                       onChange={(e) => setProjectName(e.target.value)}
                       onBlur={handleNameSave}
                       onKeyDown={(e) => e.key === 'Enter' && handleNameSave()}
-                      className="text-2xl font-bold text-gray-900 border-b-2 border-blue-500 outline-none bg-transparent"
+                      className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-blue-500 outline-none bg-transparent"
                       autoFocus
                     />
                   ) : (
                     <h1 
                       onClick={() => setIsEditingName(true)}
-                      className="text-2xl font-bold text-gray-900 cursor-pointer hover:text-blue-600 transition-colors"
+                      className="text-2xl font-bold text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       {projectName}
                     </h1>
                   )}
-                  <p className="text-sm text-gray-500 mt-1">{projectDescription}</p>
+                  <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">{projectDescription}</p>
                 </div>
 
                 <div className="flex items-center gap-2">

@@ -100,31 +100,31 @@ export default function MembersPage() {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <SidebarInset className="bg-gray-50/50">
+      <SidebarInset className="bg-gray-50 dark:bg-zinc-950">
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Top Bar */}
-          <header className="bg-white border-b sticky top-0 z-20">
+          <header className="bg-white dark:bg-zinc-900 border-b dark:border-zinc-800 sticky top-0 z-20">
             <div className="px-6 py-4">
               {/* Breadcrumb Navigation */}
-              <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400 mb-3">
                 <SidebarTrigger />
-                <div className="h-6 w-[1px] bg-gray-200 mx-2" />
-                <Link to="/dashboard" className="hover:text-blue-600 transition-colors">
+                <div className="h-6 w-[1px] bg-gray-200 dark:bg-zinc-700 mx-2" />
+                <Link to="/dashboard" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Dashboard
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link to={`/project/${id}/board`} className="hover:text-blue-600 transition-colors">
+                <Link to={`/project/${id}/board`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   {projectName}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-medium">Members</span>
+                <span className="text-gray-900 dark:text-white font-medium">Members</span>
               </div>
 
               {/* Page Header */}
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Team Members</h1>
-                  <p className="text-sm text-gray-500 mt-1">Manage project members and permissions</p>
+                  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Team Members</h1>
+                  <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Manage project members and permissions</p>
                 </div>
                 <Button 
                   onClick={() => setShowInviteForm(!showInviteForm)}
@@ -138,13 +138,13 @@ export default function MembersPage() {
               {/* Search and Filters */}
               <div className="flex items-center gap-3">
                 <div className="flex-1 relative max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-zinc-500" />
                   <input
                     type="text"
                     placeholder="Search members..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export default function MembersPage() {
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         roleFilter === role
                           ? 'bg-blue-600 text-white'
-                          : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                          : 'bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-700'
                       }`}
                     >
                       {role.charAt(0).toUpperCase() + role.slice(1)}
@@ -177,7 +177,7 @@ export default function MembersPage() {
               )}
 
               {/* Members Count */}
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400">
                 <Users className="w-4 h-4" />
                 <span>{filteredMembers.length} member{filteredMembers.length !== 1 ? 's' : ''} found</span>
               </div>
@@ -196,14 +196,14 @@ export default function MembersPage() {
 
               {filteredMembers.length === 0 && (
                 <div className="text-center py-12">
-                  <Users className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-500">No members found</p>
+                  <Users className="w-12 h-12 text-gray-400 dark:text-zinc-600 mx-auto mb-3" />
+                  <p className="text-gray-500 dark:text-zinc-400">No members found</p>
                 </div>
               )}
 
               {/* Permissions Table */}
               <div className="mt-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Roles & Permissions</h2>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Roles & Permissions</h2>
                 <PermissionsTable />
               </div>
             </div>

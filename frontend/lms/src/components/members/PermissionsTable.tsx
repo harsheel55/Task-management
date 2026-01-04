@@ -51,33 +51,33 @@ const permissions = [
 ];
 
 const roleColors = {
-  owner: 'bg-purple-50 text-purple-700 font-semibold',
-  admin: 'bg-blue-50 text-blue-700 font-semibold',
-  member: 'bg-green-50 text-green-700 font-semibold',
-  viewer: 'bg-gray-50 text-gray-700 font-semibold'
+  owner: 'bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-semibold',
+  admin: 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-semibold',
+  member: 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold',
+  viewer: 'bg-gray-50 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 font-semibold'
 };
 
 export function PermissionsTable() {
   const PermissionIcon = ({ allowed }: { allowed: boolean }) => (
     allowed ? (
       <div className="flex justify-center">
-        <Check className="w-5 h-5 text-green-600" />
+        <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
       </div>
     ) : (
       <div className="flex justify-center">
-        <X className="w-5 h-5 text-gray-300" />
+        <X className="w-5 h-5 text-gray-300 dark:text-zinc-600" />
       </div>
     )
   );
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 overflow-hidden">
       {/* Table Header */}
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-200">
-              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 bg-gray-50">
+            <tr className="border-b border-gray-200 dark:border-zinc-800">
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white bg-gray-50 dark:bg-zinc-800">
                 Permission
               </th>
               <th className={`px-6 py-4 text-center text-sm ${roleColors.owner}`}>
@@ -98,8 +98,8 @@ export function PermissionsTable() {
             {permissions.map((category, categoryIdx) => (
               <React.Fragment key={categoryIdx}>
                 {/* Category Header */}
-                <tr className="bg-gray-50">
-                  <td colSpan={5} className="px-6 py-3 text-sm font-semibold text-gray-700">
+                <tr className="bg-gray-50 dark:bg-zinc-800">
+                  <td colSpan={5} className="px-6 py-3 text-sm font-semibold text-gray-700 dark:text-zinc-300">
                     {category.category}
                   </td>
                 </tr>
@@ -107,9 +107,9 @@ export function PermissionsTable() {
                 {category.items.map((item, itemIdx) => (
                   <tr 
                     key={itemIdx} 
-                    className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                    className="border-b border-gray-100 dark:border-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
                   >
-                    <td className="px-6 py-3 text-sm text-gray-700">
+                    <td className="px-6 py-3 text-sm text-gray-700 dark:text-zinc-300">
                       {item.name}
                     </td>
                     <td className="px-6 py-3">
@@ -133,15 +133,15 @@ export function PermissionsTable() {
       </div>
 
       {/* Legend */}
-      <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+      <div className="px-6 py-4 bg-gray-50 dark:bg-zinc-800 border-t border-gray-200 dark:border-zinc-800">
         <div className="flex items-center gap-6 text-sm">
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-green-600" />
-            <span className="text-gray-600">Allowed</span>
+            <Check className="w-4 h-4 text-green-600 dark:text-green-400" />
+            <span className="text-gray-600 dark:text-zinc-400">Allowed</span>
           </div>
           <div className="flex items-center gap-2">
-            <X className="w-4 h-4 text-gray-300" />
-            <span className="text-gray-600">Not allowed</span>
+            <X className="w-4 h-4 text-gray-300 dark:text-zinc-600" />
+            <span className="text-gray-600 dark:text-zinc-400">Not allowed</span>
           </div>
         </div>
       </div>
