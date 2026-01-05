@@ -15,10 +15,10 @@ interface TaskCardProps {
 }
 
 const priorityConfig = {
-  low: { color: 'bg-gray-100 text-gray-700 border-gray-300', icon: '🔵' },
-  medium: { color: 'bg-blue-100 text-blue-700 border-blue-300', icon: '🟡' },
-  high: { color: 'bg-orange-100 text-orange-700 border-orange-300', icon: '🟠' },
-  urgent: { color: 'bg-red-100 text-red-700 border-red-300', icon: '🔴' }
+  low: { color: 'bg-gray-100 text-gray-700 border-gray-300 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-600', icon: '🔵' },
+  medium: { color: 'bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-700', icon: '🟡' },
+  high: { color: 'bg-orange-100 text-orange-700 border-orange-300 dark:bg-orange-950/40 dark:text-orange-300 dark:border-orange-700', icon: '🟠' },
+  urgent: { color: 'bg-red-100 text-red-700 border-red-300 dark:bg-red-950/40 dark:text-red-300 dark:border-red-700', icon: '🔴' }
 };
 
 export function TaskCard({ task, isDragging = false, onTaskClick }: TaskCardProps) {
@@ -52,7 +52,7 @@ export function TaskCard({ task, isDragging = false, onTaskClick }: TaskCardProp
       ref={setNodeRef}
       style={style}
       onClick={handleClick}
-      className={`bg-white rounded-lg border border-gray-200 p-3 hover:shadow-md transition-shadow cursor-pointer group ${
+      className={`bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-3 hover:shadow-md transition-shadow cursor-pointer group ${
         isDragging ? 'shadow-lg' : ''
       }`}
     >
@@ -63,11 +63,11 @@ export function TaskCard({ task, isDragging = false, onTaskClick }: TaskCardProp
           {...listeners}
           className="cursor-grab active:cursor-grabbing opacity-0 group-hover:opacity-100 transition-opacity mt-1"
         >
-          <GripVertical className="w-4 h-4 text-gray-400" />
+          <GripVertical className="w-4 h-4 text-gray-400 dark:text-zinc-500" />
         </div>
         <div className="flex-1">
-          <h4 className="font-medium text-gray-900 text-sm mb-1">{task.title}</h4>
-          <p className="text-xs text-gray-500 line-clamp-2">{task.description}</p>
+          <h4 className="font-medium text-gray-900 dark:text-white text-sm mb-1">{task.title}</h4>
+          <p className="text-xs text-gray-500 dark:text-zinc-400 line-clamp-2">{task.description}</p>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export function TaskCard({ task, isDragging = false, onTaskClick }: TaskCardProp
           {task.labels.map((label, idx) => (
             <span
               key={idx}
-              className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full font-medium"
+              className="px-2 py-0.5 bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300 text-xs rounded-full font-medium"
             >
               {label}
             </span>
@@ -94,8 +94,8 @@ export function TaskCard({ task, isDragging = false, onTaskClick }: TaskCardProp
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-        <div className="flex items-center gap-3 text-xs text-gray-500">
+      <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-zinc-800">
+        <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-zinc-400">
           {task.dueDate && (
             <div className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />

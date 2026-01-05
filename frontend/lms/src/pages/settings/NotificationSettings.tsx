@@ -52,14 +52,14 @@ export const NotificationSettings = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Bell className="w-5 h-5 text-blue-600" />
+              <Bell className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">In-App Notifications</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Manage your in-app notification preferences</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">In-App Notifications</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Manage your in-app notification preferences</p>
               </div>
             </div>
           </div>
@@ -71,11 +71,11 @@ export const NotificationSettings = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-zinc-800 last:border-0"
               >
                 <div className="flex-1">
-                  <div className="text-sm font-semibold text-gray-900">{type.label}</div>
-                  <div className="text-xs text-gray-500 mt-0.5">{type.description}</div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white">{type.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">{type.description}</div>
                 </div>
                 <button
                   onClick={() => handleInAppToggle(type.key)}
@@ -100,14 +100,14 @@ export const NotificationSettings = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-blue-600" />
+              <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Email Notifications</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Choose what notifications to receive via email</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Email Notifications</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Choose what notifications to receive via email</p>
               </div>
             </div>
           </div>
@@ -119,11 +119,11 @@ export const NotificationSettings = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 + index * 0.05 }}
-                className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-zinc-800 last:border-0"
               >
                 <div className="flex-1">
-                  <div className="text-sm font-semibold text-gray-900">{type.label}</div>
-                  <div className="text-xs text-gray-500 mt-0.5">{type.description}</div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white">{type.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">{type.description}</div>
                 </div>
                 <button
                   onClick={() => handleEmailToggle(type.key)}
@@ -143,8 +143,8 @@ export const NotificationSettings = () => {
           </div>
 
           {/* Email Frequency */}
-          <div className="p-4 sm:p-6 border-t border-gray-200">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+          <div className="p-4 sm:p-6 border-t border-gray-200 dark:border-zinc-800">
+            <label className="block text-sm font-semibold text-gray-700 dark:text-zinc-300 mb-3">
               Email Frequency
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -156,12 +156,12 @@ export const NotificationSettings = () => {
                   onClick={() => setEmailFrequency(freq)}
                   className={`p-3 rounded-lg border-2 transition-all text-sm font-medium ${
                     emailFrequency === freq
-                      ? 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                      ? 'border-blue-500 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400'
+                      : 'border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-zinc-600 text-gray-700 dark:text-zinc-300'
                   }`}
                 >
                   <div className="capitalize">{freq}</div>
-                  <div className="text-xs text-gray-500 mt-1">
+                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">
                     {freq === 'immediately' && 'Real-time emails'}
                     {freq === 'daily' && 'Once per day'}
                     {freq === 'weekly' && 'Weekly digest'}

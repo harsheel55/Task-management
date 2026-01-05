@@ -116,9 +116,9 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
   return (
     <div className="h-full overflow-y-auto p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 overflow-hidden">
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 border-b border-gray-200 font-medium text-sm text-gray-700">
+          <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 font-medium text-sm text-gray-700 dark:text-zinc-300">
             <div className="col-span-4">Task</div>
             <div className="col-span-2">Status</div>
             <div className="col-span-2">Priority</div>
@@ -128,9 +128,9 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
           </div>
 
           {/* Table Body */}
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-gray-200 dark:divide-zinc-800">
             {filteredTasks.length === 0 ? (
-              <div className="px-6 py-12 text-center text-gray-500">
+              <div className="px-6 py-12 text-center text-gray-500 dark:text-zinc-400">
                 No tasks found
               </div>
             ) : (
@@ -142,18 +142,18 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
                   <div 
                     key={task.id} 
                     onClick={() => onTaskClick?.(task)}
-                    className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-gray-50 transition-colors group cursor-pointer"
+                    className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors group cursor-pointer"
                   >
                     {/* Task */}
                     <div className="col-span-4">
-                      <h4 className="font-medium text-gray-900 mb-1">{task.title}</h4>
-                      <p className="text-sm text-gray-500 line-clamp-1">{task.description}</p>
+                      <h4 className="font-medium text-gray-900 dark:text-white mb-1">{task.title}</h4>
+                      <p className="text-sm text-gray-500 dark:text-zinc-400 line-clamp-1">{task.description}</p>
                       {task.labels.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
                           {task.labels.map((label, idx) => (
                             <span
                               key={idx}
-                              className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full"
+                              className="px-2 py-0.5 bg-purple-100 text-purple-700 dark:bg-purple-950/40 dark:text-purple-300 text-xs rounded-full"
                             >
                               {label}
                             </span>
@@ -198,7 +198,7 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
                           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-xs font-bold text-white">
                             {task.assignee.avatar}
                           </div>
-                          <span className="text-sm text-gray-700">{task.assignee.name}</span>
+                          <span className="text-sm text-gray-700 dark:text-zinc-300">{task.assignee.name}</span>
                         </div>
                       )}
                     </div>
@@ -206,7 +206,7 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
                     {/* Due Date */}
                     <div className="col-span-1 flex items-center">
                       {task.dueDate && (
-                        <div className="flex items-center gap-1 text-sm text-gray-600">
+                        <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-zinc-400">
                           <Calendar className="w-3 h-3" />
                           <span>{new Date(task.dueDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                         </div>
@@ -217,8 +217,8 @@ export function ListView({ searchQuery = '', onTaskClick }: ListViewProps) {
                     <div className="col-span-1 flex items-center justify-end">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <button className="p-1 opacity-0 group-hover:opacity-100 hover:bg-gray-200 rounded transition-all">
-                            <MoreVertical className="w-4 h-4 text-gray-600" />
+                          <button className="p-1 opacity-0 group-hover:opacity-100 hover:bg-gray-200 dark:hover:bg-zinc-800 rounded transition-all">
+                            <MoreVertical className="w-4 h-4 text-gray-600 dark:text-zinc-400" />
                           </button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">

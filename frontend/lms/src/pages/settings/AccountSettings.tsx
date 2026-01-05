@@ -52,14 +52,14 @@ export const AccountSettings = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Lock className="w-5 h-5 text-blue-600" />
+              <Lock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Change Password</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Update your account password</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Change Password</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Update your account password</p>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ export const AccountSettings = () => {
           <div className="p-4 sm:p-6 space-y-4">
             {/* Current Password */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-zinc-300 mb-2">
                 Current Password
               </label>
               <div className="relative">
@@ -76,11 +76,11 @@ export const AccountSettings = () => {
                   name="currentPassword"
                   value={passwordData.currentPassword}
                   onChange={handlePasswordChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                 />
                 <button
                   onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-zinc-500 hover:text-gray-600 dark:hover:text-zinc-300"
                 >
                   {showPassword.current ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -89,7 +89,7 @@ export const AccountSettings = () => {
 
             {/* New Password */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-zinc-300 mb-2">
                 New Password
               </label>
               <div className="relative">
@@ -98,11 +98,11 @@ export const AccountSettings = () => {
                   name="newPassword"
                   value={passwordData.newPassword}
                   onChange={handlePasswordChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                 />
                 <button
                   onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-zinc-500 hover:text-gray-600 dark:hover:text-zinc-300"
                 >
                   {showPassword.new ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -111,7 +111,7 @@ export const AccountSettings = () => {
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-zinc-300 mb-2">
                 Confirm New Password
               </label>
               <div className="relative">
@@ -120,11 +120,11 @@ export const AccountSettings = () => {
                   name="confirmPassword"
                   value={passwordData.confirmPassword}
                   onChange={handlePasswordChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 pr-10 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                 />
                 <button
                   onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-zinc-500 hover:text-gray-600 dark:hover:text-zinc-300"
                 >
                   {showPassword.confirm ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -149,14 +149,14 @@ export const AccountSettings = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-blue-600" />
+              <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Email Preferences</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Choose what emails you receive</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Email Preferences</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Choose what emails you receive</p>
               </div>
             </div>
           </div>
@@ -173,11 +173,11 @@ export const AccountSettings = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 + index * 0.05 }}
-                className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-zinc-800 last:border-0"
               >
                 <div className="flex-1">
-                  <div className="text-sm font-semibold text-gray-900">{pref.label}</div>
-                  <div className="text-xs text-gray-500 mt-0.5">{pref.description}</div>
+                  <div className="text-sm font-semibold text-gray-900 dark:text-white">{pref.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">{pref.description}</div>
                 </div>
                 <button
                   onClick={() => handleEmailToggle(pref.key)}
@@ -200,7 +200,7 @@ export const AccountSettings = () => {
             ))}
           </div>
 
-          <div className="p-4 sm:p-6 border-t border-gray-200">
+          <div className="p-4 sm:p-6 border-t border-gray-200 dark:border-zinc-800">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -217,14 +217,14 @@ export const AccountSettings = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-white rounded-lg border-2 border-red-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border-2 border-red-200 dark:border-red-900"
         >
-          <div className="p-4 sm:p-6 border-b border-red-200 bg-red-50">
+          <div className="p-4 sm:p-6 border-b border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30">
             <div className="flex items-center gap-3">
-              <AlertTriangle className="w-5 h-5 text-red-600" />
+              <AlertTriangle className="w-5 h-5 text-red-600 dark:text-red-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-red-900">Danger Zone</h2>
-                <p className="text-xs sm:text-sm text-red-700">Irreversible actions</p>
+                <h2 className="text-lg sm:text-xl font-bold text-red-900 dark:text-red-400">Danger Zone</h2>
+                <p className="text-xs sm:text-sm text-red-700 dark:text-red-400/80">Irreversible actions</p>
               </div>
             </div>
           </div>
@@ -232,8 +232,8 @@ export const AccountSettings = () => {
           <div className="p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <h3 className="text-sm font-semibold text-gray-900">Delete Account</h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Delete Account</h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400 mt-1">
                   Permanently delete your account and all associated data
                 </p>
               </div>
@@ -265,15 +265,15 @@ export const AccountSettings = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-lg p-6 max-w-md w-full"
+            className="bg-white dark:bg-zinc-900 rounded-lg p-6 max-w-md w-full"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-red-600" />
+              <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-950/50 flex items-center justify-center">
+                <AlertTriangle className="w-6 h-6 text-red-600 dark:text-red-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Delete Account?</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Delete Account?</h3>
             </div>
-            <p className="text-sm text-gray-600 mb-6">
+            <p className="text-sm text-gray-600 dark:text-zinc-400 mb-6">
               This action cannot be undone. All your data, projects, and tasks will be permanently deleted.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -281,7 +281,7 @@ export const AccountSettings = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setShowDeleteModal(false)}
-                className="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                className="flex-1 px-4 py-2.5 border border-gray-300 dark:border-zinc-700 text-gray-700 dark:text-zinc-300 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800 font-medium"
               >
                 Cancel
               </motion.button>

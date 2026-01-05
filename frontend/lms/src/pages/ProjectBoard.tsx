@@ -80,20 +80,20 @@ export default function ProjectBoard() {
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <SidebarInset className="bg-gray-50/50 overflow-hidden">
+      <SidebarInset className="bg-gray-50/50 dark:bg-zinc-950 overflow-hidden">
         <div className="flex flex-col h-screen overflow-hidden">
           {/* Top Bar */}
-          <header className="bg-white border-b sticky top-0 z-20">
+          <header className="bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 sticky top-0 z-20">
             <div className="px-6 py-4">
               {/* Breadcrumb Navigation */}
-              <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-400 mb-3">
                 <SidebarTrigger />
                 <div className="h-6 w-[1px] bg-gray-200 mx-2" />
-                <Link to="/dashboard" className="hover:text-blue-600 transition-colors">
+                <Link to="/dashboard" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Dashboard
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-medium">{projectName}</span>
+                <span className="text-gray-900 dark:text-white font-medium">{projectName}</span>
               </div>
 
               {/* Project Header */}
@@ -176,13 +176,13 @@ export default function ProjectBoard() {
               {/* Search and Filters */}
               <div className="flex items-center gap-3">
                 <div className="flex-1 relative max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-zinc-500" />
                   <input
                     type="text"
                     placeholder="Search tasks..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   />
                 </div>
 
@@ -196,11 +196,11 @@ export default function ProjectBoard() {
                 </Button>
 
                 {/* View Options */}
-                <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+                <div className="flex border border-gray-300 dark:border-zinc-700 rounded-lg overflow-hidden bg-white dark:bg-zinc-900">
                   <button
                     onClick={() => setViewMode('board')}
                     className={`p-2 transition-colors ${
-                      viewMode === 'board' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-50'
+                      viewMode === 'board' ? 'bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-300' : 'hover:bg-gray-50 dark:hover:bg-zinc-800'
                     }`}
                     title="Board View"
                   >
@@ -209,7 +209,7 @@ export default function ProjectBoard() {
                   <button
                     onClick={() => setViewMode('list')}
                     className={`p-2 transition-colors ${
-                      viewMode === 'list' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-50'
+                      viewMode === 'list' ? 'bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-300' : 'hover:bg-gray-50 dark:hover:bg-zinc-800'
                     }`}
                     title="List View"
                   >
@@ -218,7 +218,7 @@ export default function ProjectBoard() {
                   <button
                     onClick={() => setViewMode('calendar')}
                     className={`p-2 transition-colors ${
-                      viewMode === 'calendar' ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-50'
+                      viewMode === 'calendar' ? 'bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-300' : 'hover:bg-gray-50 dark:hover:bg-zinc-800'
                     }`}
                     title="Calendar View"
                   >

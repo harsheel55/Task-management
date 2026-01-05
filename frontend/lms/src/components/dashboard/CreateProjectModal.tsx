@@ -33,20 +33,20 @@ export function CreateProjectModal({ isOpen, onClose, onSubmit }: CreateProjectM
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
+      <div className="relative bg-white dark:bg-zinc-900 rounded-xl shadow-xl w-full max-w-md mx-4 p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900">Create New Project</h2>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Create New Project</h2>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-gray-100 rounded transition-colors"
+            className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 dark:text-zinc-400" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="project-name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="project-name" className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-1">
               Project Name
             </label>
             <input
@@ -54,14 +54,14 @@ export function CreateProjectModal({ isOpen, onClose, onSubmit }: CreateProjectM
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
               placeholder="Enter project name..."
               required
             />
           </div>
 
           <div>
-            <label htmlFor="project-description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="project-description" className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-1">
               Description
             </label>
             <textarea
@@ -69,7 +69,7 @@ export function CreateProjectModal({ isOpen, onClose, onSubmit }: CreateProjectM
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={4}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
               placeholder="Enter project description..."
               required
             />

@@ -54,26 +54,26 @@ export function TaskDetailModal({ task, isOpen, onClose, onUpdate, onDelete }: T
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-5xl mx-4 max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="relative bg-white dark:bg-zinc-950 rounded-xl shadow-2xl w-full max-w-5xl mx-4 max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="px-6 py-3 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+        <div className="px-6 py-3 border-b border-gray-200 dark:border-zinc-800 flex items-center justify-between bg-gray-50 dark:bg-zinc-900">
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-500 font-mono">#{task.id}</span>
-            <button className="p-1 hover:bg-gray-200 rounded transition-colors">
-              <ExternalLink className="w-4 h-4 text-gray-400" />
+            <span className="text-sm text-gray-500 dark:text-zinc-400 font-mono">#{task.id}</span>
+            <button className="p-1 hover:bg-gray-200 dark:hover:bg-zinc-800 rounded transition-colors">
+              <ExternalLink className="w-4 h-4 text-gray-400 dark:text-zinc-500" />
             </button>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={handleDelete}
-              className="flex items-center gap-2 px-3 py-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-3 py-1.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors text-sm font-medium"
             >
               <Trash2 className="w-4 h-4" />
               Delete
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 hover:bg-gray-200 rounded-lg transition-colors"
+              className="p-1.5 hover:bg-gray-200 dark:hover:bg-zinc-800 rounded-lg transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -81,14 +81,14 @@ export function TaskDetailModal({ task, isOpen, onClose, onUpdate, onDelete }: T
         </div>
 
         {/* Tabs */}
-        <div className="px-6 border-b border-gray-200">
+        <div className="px-6 border-b border-gray-200 dark:border-zinc-800">
           <div className="flex gap-6">
             <button
               onClick={() => setActiveTab('details')}
               className={`py-3 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'details'
                   ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  : 'border-transparent text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Details
@@ -98,7 +98,7 @@ export function TaskDetailModal({ task, isOpen, onClose, onUpdate, onDelete }: T
               className={`py-3 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'activity'
                   ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  : 'border-transparent text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Activity
@@ -118,7 +118,7 @@ export function TaskDetailModal({ task, isOpen, onClose, onUpdate, onDelete }: T
               </div>
 
               {/* Properties Sidebar */}
-              <div className="w-80 border-l border-gray-200 overflow-y-auto p-6 bg-gray-50">
+              <div className="w-80 border-l border-gray-200 dark:border-zinc-800 overflow-y-auto p-6 bg-gray-50 dark:bg-zinc-900">
                 <TaskProperties task={task} onUpdate={onUpdate} />
               </div>
             </>

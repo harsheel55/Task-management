@@ -128,7 +128,7 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
 
   const days = [];
   for (let i = 0; i < firstDay; i++) {
-    days.push(<div key={`empty-${i}`} className="min-h-32 bg-gray-50/50" />);
+    days.push(<div key={`empty-${i}`} className="min-h-32 bg-gray-50/50 dark:bg-zinc-900" />);
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
@@ -138,11 +138,11 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
     days.push(
       <div
         key={day}
-        className={`min-h-32 border border-gray-200 p-2 bg-white hover:bg-gray-50 transition-colors ${
-          isToday ? 'ring-2 ring-blue-500 bg-blue-50' : ''
+        className={`min-h-32 border border-gray-200 dark:border-zinc-800 p-2 bg-white dark:bg-zinc-900 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors ${
+          isToday ? 'ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-950/30' : ''
         }`}
       >
-        <div className={`text-sm font-medium mb-2 ${isToday ? 'text-blue-600' : 'text-gray-700'}`}>
+        <div className={`text-sm font-medium mb-2 ${isToday ? 'text-blue-600 dark:text-blue-300' : 'text-gray-700 dark:text-zinc-300'}`}>
           {day}
           {isToday && <span className="ml-1 text-xs">(Today)</span>}
         </div>
@@ -153,24 +153,24 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
               <div
                 key={task.id}
                 onClick={() => onTaskClick?.(task)}
-                className="text-xs p-1.5 rounded bg-gray-50 border-l-2 hover:bg-gray-100 cursor-pointer transition-colors"
+                className="text-xs p-1.5 rounded bg-gray-50 dark:bg-zinc-800 border-l-2 hover:bg-gray-100 dark:hover:bg-zinc-700 cursor-pointer transition-colors"
                 style={{ borderLeftColor: priorityStyle.color.replace('bg-', '#') }}
                 title={task.description}
               >
-                <div className="font-medium text-gray-900 truncate">{task.title}</div>
+                <div className="font-medium text-gray-900 dark:text-white truncate">{task.title}</div>
                 {task.assignee && (
                   <div className="flex items-center gap-1 mt-1">
                     <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-[8px] font-bold text-white">
                       {task.assignee.avatar}
                     </div>
-                    <span className="text-gray-500 text-[10px] truncate">{task.assignee.name}</span>
+                    <span className="text-gray-500 dark:text-zinc-400 text-[10px] truncate">{task.assignee.name}</span>
                   </div>
                 )}
               </div>
             );
           })}
           {dayTasks.length > 3 && (
-            <div className="text-xs text-gray-500 pl-1.5">
+            <div className="text-xs text-gray-500 dark:text-zinc-400 pl-1.5">
               +{dayTasks.length - 3} more
             </div>
           )}
@@ -183,19 +183,19 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
     <div className="h-full overflow-y-auto p-6">
       <div className="max-w-7xl mx-auto">
         {/* Calendar Header */}
-        <div className="bg-white rounded-lg border border-gray-200 mb-4 p-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-gray-900">{monthName}</h2>
+        <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 mb-4 p-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">{monthName}</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={previousMonth}
-              className="p-2 hover:bg-gray-100 rounded transition-colors"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors"
               title="Previous month"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextMonth}
-              className="p-2 hover:bg-gray-100 rounded transition-colors"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded transition-colors"
               title="Next month"
             >
               <ChevronRight className="w-5 h-5" />
@@ -204,11 +204,11 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
         </div>
 
         {/* Calendar Grid */}
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 overflow-hidden">
           {/* Weekday Headers */}
-          <div className="grid grid-cols-7 bg-gray-50 border-b border-gray-200">
+          <div className="grid grid-cols-7 bg-gray-50 dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800">
             {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-              <div key={day} className="py-3 text-center text-sm font-semibold text-gray-700 border-r border-gray-200 last:border-r-0">
+              <div key={day} className="py-3 text-center text-sm font-semibold text-gray-700 dark:text-zinc-300 border-r border-gray-200 dark:border-zinc-800 last:border-r-0">
                 {day}
               </div>
             ))}
@@ -221,24 +221,24 @@ export function CalendarView({ searchQuery = '', onTaskClick }: CalendarViewProp
         </div>
 
         {/* Legend */}
-        <div className="mt-4 bg-white rounded-lg border border-gray-200 p-4">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">Priority Legend</h3>
+        <div className="mt-4 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800 p-4">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Priority Legend</h3>
           <div className="flex flex-wrap gap-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-red-500 rounded"></div>
-              <span className="text-sm text-gray-700">Urgent</span>
+              <span className="text-sm text-gray-700 dark:text-zinc-300">Urgent</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-orange-500 rounded"></div>
-              <span className="text-sm text-gray-700">High</span>
+              <span className="text-sm text-gray-700 dark:text-zinc-300">High</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-blue-500 rounded"></div>
-              <span className="text-sm text-gray-700">Medium</span>
+              <span className="text-sm text-gray-700 dark:text-zinc-300">Medium</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-gray-500 rounded"></div>
-              <span className="text-sm text-gray-700">Low</span>
+              <span className="text-sm text-gray-700 dark:text-zinc-300">Low</span>
             </div>
           </div>
         </div>

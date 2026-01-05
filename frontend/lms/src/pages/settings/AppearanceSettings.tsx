@@ -44,14 +44,14 @@ export const AppearanceSettings = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Sun className="w-5 h-5 text-blue-600" />
+              <Sun className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Theme</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Choose your preferred theme</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Theme</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Choose your preferred theme</p>
               </div>
             </div>
           </div>
@@ -71,19 +71,19 @@ export const AppearanceSettings = () => {
                     onClick={() => setTheme(t.value)}
                     className={`p-4 rounded-lg border-2 transition-all ${
                       theme === t.value
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-950/30'
+                        : 'border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-zinc-600'
                     }`}
                   >
                     <Icon
                       className={`w-8 h-8 mx-auto mb-2 ${
-                        theme === t.value ? 'text-blue-600' : 'text-gray-400'
+                        theme === t.value ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400 dark:text-zinc-500'
                       }`}
                     />
-                    <div className={`text-sm font-semibold ${theme === t.value ? 'text-blue-700' : 'text-gray-900'}`}>
+                    <div className={`text-sm font-semibold ${theme === t.value ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-white'}`}>
                       {t.label}
                     </div>
-                    <div className="text-xs text-gray-500 mt-1">{t.description}</div>
+                    <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">{t.description}</div>
                   </motion.button>
                 );
               })}
@@ -96,14 +96,14 @@ export const AppearanceSettings = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Palette className="w-5 h-5 text-blue-600" />
+              <Palette className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Color Scheme</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Choose your accent color</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Color Scheme</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Choose your accent color</p>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ export const AppearanceSettings = () => {
                       />
                     )}
                   </div>
-                  <div className="text-xs sm:text-sm font-medium text-gray-700">{scheme.label}</div>
+                  <div className="text-xs sm:text-sm font-medium text-gray-700 dark:text-zinc-300">{scheme.label}</div>
                 </motion.button>
               ))}
             </div>
@@ -148,12 +148,12 @@ export const AppearanceSettings = () => {
           transition={{ delay: 0.2 }}
           className="bg-white rounded-lg border border-gray-200"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Type className="w-5 h-5 text-blue-600" />
+              <Type className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Font Size</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Adjust text size for readability</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Font Size</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Adjust text size for readability</p>
               </div>
             </div>
           </div>
@@ -171,20 +171,20 @@ export const AppearanceSettings = () => {
                   onClick={() => setFontSize(fs.value)}
                   className={`p-4 rounded-lg border-2 transition-all ${
                     fontSize === fs.value
-                      ? 'border-blue-500 bg-blue-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-blue-500 bg-blue-50 dark:bg-blue-950/30'
+                      : 'border-gray-200 dark:border-zinc-700 hover:border-gray-300 dark:hover:border-zinc-600'
                   }`}
                 >
                   <div
                     style={{ fontSize: fs.size }}
-                    className={`font-semibold mb-1 ${fontSize === fs.value ? 'text-blue-700' : 'text-gray-900'}`}
+                    className={`font-semibold mb-1 ${fontSize === fs.value ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-white'}`}
                   >
                     Aa
                   </div>
-                  <div className={`text-sm ${fontSize === fs.value ? 'text-blue-600' : 'text-gray-600'}`}>
+                  <div className={`text-sm ${fontSize === fs.value ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-zinc-400'}`}>
                     {fs.label}
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{fs.size}</div>
+                  <div className="text-xs text-gray-500 dark:text-zinc-400 mt-1">{fs.size}</div>
                 </motion.button>
               ))}
             </div>
@@ -196,14 +196,14 @@ export const AppearanceSettings = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="bg-white rounded-lg border border-gray-200"
+          className="bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-800"
         >
-          <div className="p-4 sm:p-6 border-b border-gray-200">
+          <div className="p-4 sm:p-6 border-b border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-3">
-              <Minimize2 className="w-5 h-5 text-blue-600" />
+              <Minimize2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <div>
-                <h2 className="text-lg sm:text-xl font-bold text-gray-900">Display Options</h2>
-                <p className="text-xs sm:text-sm text-gray-600">Customize interface density</p>
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Display Options</h2>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Customize interface density</p>
               </div>
             </div>
           </div>
@@ -211,8 +211,8 @@ export const AppearanceSettings = () => {
           <div className="p-4 sm:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm font-semibold text-gray-900">Compact Mode</div>
-                <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                <div className="text-sm font-semibold text-gray-900 dark:text-white">Compact Mode</div>
+                <div className="text-xs sm:text-sm text-gray-500 dark:text-zinc-400 mt-1">
                   Reduce spacing for a more dense interface
                 </div>
               </div>

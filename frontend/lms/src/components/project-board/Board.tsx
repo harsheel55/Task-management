@@ -294,9 +294,9 @@ export function Board({ searchQuery = '', onTaskClick }: BoardProps) {
           {/* Add Column Button */}
           <button
             onClick={handleAddColumn}
-            className="flex-shrink-0 w-72 h-fit bg-gray-100 hover:bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg p-4 transition-colors group"
+            className="flex-shrink-0 w-72 h-fit bg-gray-100 hover:bg-gray-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border-2 border-dashed border-gray-300 dark:border-zinc-700 rounded-lg p-4 transition-colors group"
           >
-            <div className="flex items-center gap-2 text-gray-600 group-hover:text-gray-900">
+            <div className="flex items-center gap-2 text-gray-600 dark:text-zinc-300 group-hover:text-gray-900 dark:group-hover:text-white">
               <Plus className="w-5 h-5" />
               <span className="font-medium">Add Column</span>
             </div>

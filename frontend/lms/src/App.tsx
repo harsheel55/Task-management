@@ -27,7 +27,7 @@ function AppContent() {
   const isDashboard = location.pathname === '/dashboard' || location.pathname.startsWith('/project/') || location.pathname === '/tasks' || location.pathname === '/notifications' || location.pathname.startsWith('/settings/') || location.pathname === '/search'
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {!isDashboard && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />

@@ -46,9 +46,9 @@ export function Column({ column, onUpdateTitle, onDelete, onAddTask, onTaskClick
   };
 
   return (
-    <div className="flex-shrink-0 w-80 bg-gray-50 rounded-lg flex flex-col max-h-full">
+    <div className="flex-shrink-0 w-80 bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg flex flex-col max-h-full">
       {/* Column Header */}
-      <div className="p-4 border-b border-gray-200">
+      <div className="p-4 border-b border-gray-200 dark:border-zinc-800">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2 flex-1">
             <div className={`w-3 h-3 rounded-full ${column.color}`} />
@@ -65,13 +65,13 @@ export function Column({ column, onUpdateTitle, onDelete, onAddTask, onTaskClick
                     setIsEditingTitle(false);
                   }
                 }}
-                className="flex-1 font-semibold text-gray-900 bg-white border border-blue-500 rounded px-2 py-1 outline-none"
+                className="flex-1 font-semibold text-gray-900 dark:text-white bg-white dark:bg-zinc-900 border border-blue-500 rounded px-2 py-1 outline-none"
                 autoFocus
               />
             ) : (
               <h3
                 onClick={() => setIsEditingTitle(true)}
-                className="flex-1 font-semibold text-gray-900 cursor-pointer hover:text-blue-600 transition-colors"
+                className="flex-1 font-semibold text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {column.title}
               </h3>
@@ -79,13 +79,13 @@ export function Column({ column, onUpdateTitle, onDelete, onAddTask, onTaskClick
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-500 bg-gray-200 px-2 py-1 rounded">
+            <span className="text-sm font-medium text-gray-500 dark:text-zinc-300 bg-gray-200 dark:bg-zinc-800 px-2 py-1 rounded">
               {column.tasks.length}
             </span>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="p-1 hover:bg-gray-200 rounded transition-colors">
-                  <MoreVertical className="w-4 h-4 text-gray-600" />
+                <button className="p-1 hover:bg-gray-200 dark:hover:bg-zinc-800 rounded transition-colors">
+                  <MoreVertical className="w-4 h-4 text-gray-600 dark:text-zinc-400" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -131,7 +131,7 @@ export function Column({ column, onUpdateTitle, onDelete, onAddTask, onTaskClick
       </div>
 
       {/* Add Task Button */}
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-200 dark:border-zinc-800">
         <AddTaskButton onClick={() => setShowQuickAdd(true)} />
       </div>
     </div>
